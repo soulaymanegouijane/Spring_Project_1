@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PositiveOrZero;
 
 @Entity
 @Builder
@@ -18,11 +20,11 @@ import javax.persistence.Id;
 public class Departement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long DepartementId;
+    private Long departementId;
+    @NotBlank(message = "Please Provide a Department name")
+    private String departementName;
 
-    private String DepartementName;
-
-    private String DepartementAdress;
-
-    private String DepartementCode;
+    private String departementAdress;
+    @PositiveOrZero(message = "the department code shouldn't be negative !")
+    private String departementCode;
 }

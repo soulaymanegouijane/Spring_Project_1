@@ -11,4 +11,12 @@ public interface DepartementService {
    List<Departement> fetchDepartements();
 
    Departement getDepartementById(Long id);
+
+   void deleteDepartementById(Long departementId);
+
+   Departement updateDepartementById(Long id, Departement departement);
+
+   List<Departement> findDepartementByName(String name);
+
+   void deleteDepartementByName(String name);
 }
