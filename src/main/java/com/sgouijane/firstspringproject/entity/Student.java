@@ -1,6 +1,7 @@
 package com.sgouijane.firstspringproject.entity;
 
 import lombok.*;
+import org.springframework.context.annotation.Scope;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
