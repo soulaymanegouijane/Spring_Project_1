@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class DepartementController {
     DepartementService departementService;
 
     @PostMapping("/departements")
-    public Departement saveDepartement(@RequestBody Departement departement, @RequestParam Long departementCode){
+    public Departement saveDepartement(@Valid @RequestBody Departement departement, @RequestParam Long departementCode){
         System.out.println("departementId = " + departementCode);
         LOGGER.warn("Posting Data to DataBase From /departments POST method ");
         return departementService.saveDepartement(departement);
