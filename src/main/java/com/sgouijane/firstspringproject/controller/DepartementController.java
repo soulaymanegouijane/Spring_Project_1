@@ -1,6 +1,7 @@
 package com.sgouijane.firstspringproject.controller;
 
 import com.sgouijane.firstspringproject.entity.Departement;
+import com.sgouijane.firstspringproject.exception.DepartementNotFoundException;
 import com.sgouijane.firstspringproject.service.DepartementService;
 import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
@@ -33,7 +34,7 @@ public class DepartementController {
     }
 
     @GetMapping("/departements/{id}")
-    public Departement getDepartementById(@PathVariable Long id){
+    public Departement getDepartementById(@PathVariable Long id) throws DepartementNotFoundException {
         return departementService.getDepartementById(id);
     }
 
@@ -45,7 +46,7 @@ public class DepartementController {
     }
 
     @PutMapping("/departements/{id}")
-    public Departement updateDepartementById(@PathVariable Long id, @RequestBody Departement departement){
+    public Departement updateDepartementById(@PathVariable Long id, @RequestBody Departement departement) throws DepartementNotFoundException {
        LOGGER.info("Updating data in the database where id =" + id);
         return departementService.updateDepartementById(id, departement);
     }
