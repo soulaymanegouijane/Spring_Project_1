@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Scope;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 @Data
@@ -15,4 +16,7 @@ import javax.persistence.Id;
 public class Student extends Person {
     @Id
     private long studentId;
+
+    @OneToOne(mappedBy = "student")
+    private Course course;
 }

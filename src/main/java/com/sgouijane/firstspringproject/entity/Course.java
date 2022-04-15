@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import java.util.Date;
 
 @Data
@@ -19,4 +21,8 @@ public class Course {
     private String courseTitle;
     private Long courseCredits;
     private Date examDate;
+
+    @OneToOne
+    @JoinColumn(name="student_id")
+    private Student student;
 }
